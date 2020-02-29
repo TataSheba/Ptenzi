@@ -1,0 +1,59 @@
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: C:\Users\alexa\Documents\codeblock\map\GamePtenzi\GamePtenzi.exe, файл: C:\Users\alexa\Downloads\CodeBlocks\TX\TXLib.h, строка: 11697, функция: POINT {anonymous}::TX::txGetExtent(HDC),
+
+Сообщение: Параметр "dc" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#1: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005072F4 (32-bit), Flags: CMdRe0, Thread: 0x2C38 (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0041BBC3 in C:\Users\alexa\Documents\codeblock\map\GamePtenzi\GamePtenzi.exe: txGetExtent() at C:/Users/alexa/Downloads/CodeBlocks/TX/TXLib.h (11697)
+# 1 0x0041BD90 in C:\Users\alexa\Documents\codeblock\map\GamePtenzi\GamePtenzi.exe: txGetExtentX() at C:/Users/alexa/Downloads/CodeBlocks/TX/TXLib.h (11710)
+
+# 2 0x0042B85F in C:\Users\alexa\Documents\codeblock\map\GamePtenzi\GamePtenzi.exe: main() at C:/Users/alexa/Documents/codeblock/map/GamePtenzi/GamePtenzi.cpp (43):
+
+     41:     Bird.frameX = 4;
+     42:     Bird.frameY = 2;
+=>   43:     Bird.frameSizeX = txGetExtentX (Bird.MyHDC) /Bird.frameX;
+     44:     Bird.frameSizeY = txGetExtentY (Bird.MyHDC) /Bird.frameY;
+     45:     Bird.x = 550;
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in POINT {anonymous}::TX::txGetExtent(HDC) at C:\Users\alexa\Downloads\CodeBlocks\TX\TXLib.h (11697):
+
+  11695: $0  static POINT err = {-1, -1};
+  11696: 
+=>11697: $   if (_TX_DEFAULT_HDC_FAILED (dc)) return err;
+  11698: 
+  11699: $   BITMAP bmap = {0};
+
+# 1 in int main() at C:\Users\alexa\Documents\codeblock\map\GamePtenzi\GamePtenzi.cpp (38):
+
+     36:     Bird.MyHDC   = txLoadImage ("CrownAlfa.bmp");
+     37:     HDC TreeImg  = txLoadImage ("ptenzi.bmp");
+=>   38:     HDC MapImg   = txLoadImage ("ptenziMAP.bmp");
+     39: 
+     40:     //--- Птичка----
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\alexa\Downloads\CodeBlocks\TX\TXLib.h
+Compiled:	Feb 29 2020 16:39:11, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Feb 29 2020 16:39:18
+
+Run file:	C:\Users\alexa\Documents\codeblock\map\GamePtenzi\GamePtenzi.exe
+Directory:	C:\Users\alexa\Documents\codeblock\map\GamePtenzi
+
+--------------------------------------------------
